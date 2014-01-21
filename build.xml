@@ -1,0 +1,50 @@
+<project name="expression-evaluator" basedir=".">
+    <target name="clean">
+        <delete dir="build"/>
+        <delete dir="eval.zip"/>
+        <delete dir="exp-eval"/>
+    </target>
+
+    <path id="classPath">
+        <fileset dir="dependencies" includes="*.jar"/>
+    </path>
+    <target name="createDir" depends="clean">
+        <mkdir dir="build/src"/>
+        <mkdir dir="build/test"/>
+    </target>
+    <target name="src_compile" depends="createDir">
+        <javac srcdir="src" destdir="build/src" includeantruntime="false"/>
+    </target>
+    <target name="test_compile" depends="src_compile">
+        <javac srcdir="test" destdir="build/test" classpath="build/src" classpathref="classPath"
+               includeantruntime="false"/>
+    </target>
+    <target name="run_test" depends="test_compile">
+        <java classname="org.junit.runner.JUnitCore"
+              classpath="dependencies/junit-4.10.jar;build/src;build/test">
+            <arg value="library.ExpEvalTest"/>
+        </java>
+    </target>
+    <target name="createJar" depends="run_test">
+        <mkdir dir="exp-eval/lib"/>
+        <mkdir dir="exp-eval/bin"/>
+        <jar destfile="exp-eval/lib/exp-eval.jar" basedir="build/src"/>
+    </target>
+    <target name="copy_scripts" depends="createJar">
+        <copy file="scripts/exp-eval.sh" todir="exp-eval/bin"/>
+    </target>
+    <target name="createReadMe" depends="copy_scripts">
+        <copy file="README.md" todir="exp-eval"/>
+    </target>
+    <target name="generateDocs" depends="createReadMe">
+        <javadoc packagenames="library.*,cli.*"
+                 sourcepath="src"
+                 destdir="exp-eval/docs"
+                 author="true" version="true"/>
+    </target>
+    <target name="dist" depends="generateDocs">
+        <zip zipfile="exp-eval.zip" basedir="exp-eval"/>
+    </target>
+
+
+</project>
