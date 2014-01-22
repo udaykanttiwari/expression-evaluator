@@ -8,7 +8,7 @@ expression evaluator is the tool to help to solve mathematical expression
     Take the jar file and scripts and put in your folder
 
     Add this folder to  environment variable.
-         Name : `EXP_EVAL`
+         Name : `EVALUATOR_HOME`
          Value : Path of your scripts folder
 
     Thats all now you can run and test these commands.

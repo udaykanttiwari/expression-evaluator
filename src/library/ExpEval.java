@@ -9,7 +9,7 @@ public class ExpEval {
         String[] elements = expression.split(" ");
         List<Integer> Operands = new ArrayList<Integer>();
         List<String> Operators = getOperatorsAndOperands(Operands, elements);
-        return evaluate(Operands,Operators);
+        return evaluate(Operands, Operators);
     }
 
     private List<String> getOperatorsAndOperands(List<Integer> operands, String[] elements) {
@@ -24,11 +24,22 @@ public class ExpEval {
         return operators;
 
     }
+
     private int evaluate(List<Integer> Operands, List<String> Operators) {
         int first = Operands.get(0);
-        int result;
+        int result = 0;
         int second = Operands.get(1);
-             result =  first + second;
+        if (Operators.contains("+"))
+            result = first + second;
+        if (Operators.contains("-"))
+            result = first - second;
+        if (Operators.contains("*"))
+            result = first * second;
+        if (Operators.contains("/"))
+            result = first / second;
+        if (Operators.contains("^"))
+            result = (int)Math.pow(first,second);
+
         return result;
     }
 }
