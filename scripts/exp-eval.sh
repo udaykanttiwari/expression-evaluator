@@ -1,1 +1,1 @@
-java -cp ${EXP_EVAL}/lib/exp-eval.jar cli.ExpEvalMain
+java -cp ${EXP_EVAL}/lib/exp-eval.jar cli.ExpEvalMain "${@}"
