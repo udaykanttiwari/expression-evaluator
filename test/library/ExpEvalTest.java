@@ -67,4 +67,25 @@ public class ExpEvalTest {
         int actual = exp_eval.evaluator("2 / 3 - 4");
         Assert.assertEquals(expected,actual);
     }
+    @Test
+    public void add_two_and_three_with_single_parentheses(){
+        int expected = 5;
+        ExpEval exp_eval = new ExpEval();
+        int actual = exp_eval.evaluator("(2 + 3)");
+        Assert.assertEquals(expected,actual);
+    }
+    @Test
+    public void subtract_two_and_three_with_single_parentheses(){
+        int expected = -1;
+        ExpEval exp_eval = new ExpEval();
+        int actual = exp_eval.evaluator("(2 - 3)");
+        Assert.assertEquals(expected,actual);
+    }
+    @Test
+    public void multiply_two_and_three_with_single_parentheses(){
+        int expected = 6;
+        ExpEval exp_eval = new ExpEval();
+        int actual = exp_eval.evaluator("(2 * 3)");
+        Assert.assertEquals(expected,actual);
+    }
 }
