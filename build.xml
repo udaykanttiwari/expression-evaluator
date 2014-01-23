@@ -28,6 +28,7 @@
     <target name="createJar" depends="run_test">
         <mkdir dir="build/dist/lib"/>
         <mkdir dir="build/dist/bin"/>
+
         <jar destfile="build/dist/lib/expression-evaluator.jar" basedir="exp_eval/src"/>
     </target>
     <target name="copy_scripts" depends="createJar">
