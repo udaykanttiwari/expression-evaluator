@@ -26,19 +26,23 @@ public class ExpEval {
     }
 
     private int evaluate(List<Integer> Operands, List<String> Operators) {
-        int first = Operands.get(0);
-        int result = 0;
-        int second = Operands.get(1);
-        if (Operators.contains("+"))
-            result = first + second;
-        if (Operators.contains("-"))
-            result = first - second;
-        if (Operators.contains("*"))
-            result = first * second;
-        if (Operators.contains("/"))
-            result = first / second;
-        if (Operators.contains("^"))
-            result = (int)Math.pow(first,second);
+
+        for (int i = 0; i < Operators.size(); i++) {
+            int first = Operands.get(i);
+            int result = 0;
+            int second = Operands.get(i + 1);
+            if (Operators.get(i).contains("+"))
+                Operands.set(i + 1, first + second);
+            if (Operators.get(i).contains("-"))
+                Operands.set(i + 1, first - second);
+            if (Operators.get(i).contains("*"))
+                Operands.set(i + 1, first * second);
+            if (Operators.get(i).contains("/"))
+                Operands.set(i + 1, first / second);
+            if (Operators.get(i).contains("^"))
+                Operands.set(i + 1, (int) Math.pow(first, second));
+        }
+        int result = Operands.get(Operands.size() - 1);
 
         return result;
     }

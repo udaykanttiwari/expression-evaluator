@@ -19,6 +19,18 @@ Now you are ready to run these commands
 ####RUN COMMANDS
 
 `run.sh "2 + 3"`
+#### VERSION 0.2(take multiple operator and multiple operands)
+   Our Program will accept a string expression which would have  space between operands and operators .
+    it will support operator '+','-','*','/','^'
+    It should not have Brackets.
+    It should not contain negative numbers.
+    It should not contain decimal point numbers, only integers are allowed.
+
+##### Possible BUGs
+
+it don't take expression which  dont hape space between two operands like "1+4"
+it can't take single expression like "1"
+
 #### VERSION 0.1 (take only one operator with two operands)
 
     Our Program will accept a string expression which would have  space between operands and operators .
