@@ -9,41 +9,35 @@
         <fileset dir="dependencies" includes="*.jar"/>
     </path>
     <target name="createDir" depends="clean">
-        <mkdir dir="build/src"/>
-        <mkdir dir="build/test"/>
+        <mkdir dir="exp_eval/src"/>
+        <mkdir dir="exp_eval/test"/>
     </target>
     <target name="src_compile" depends="createDir">
-        <javac srcdir="src" destdir="build/src" includeantruntime="false"/>
+        <javac srcdir="src" destdir="exp_eval/src" includeantruntime="false"/>
     </target>
     <target name="test_compile" depends="src_compile">
-        <javac srcdir="test" destdir="build/test" classpath="build/src" classpathref="classPath"
+        <javac srcdir="test" destdir="exp_eval/test" classpath="exp_eval/src" classpathref="classPath"
                includeantruntime="false"/>
     </target>
     <target name="run_test" depends="test_compile">
         <java classname="org.junit.runner.JUnitCore"
-              classpath="dependencies/junit-4.10.jar;build/src;build/test">
+              classpath="dependencies/junit-4.10.jar;exp_eval/src;exp_eval/test">
             <arg value="library.ExpEvalTest"/>
         </java>
     </target>
     <target name="createJar" depends="run_test">
-        <mkdir dir="expression-evaluator/build/dist/lib"/>
-        <mkdir dir="expression-evaluator/build/dist/bin"/>
-        <jar destfile="expression-evaluator/build/dist/lib/expression-evaluator.jar" basedir="build/src"/>
+        <mkdir dir="build/dist/lib"/>
+        <mkdir dir="build/dist/bin"/>
+        <jar destfile="build/dist/lib/expression-evaluator.jar" basedir="exp_eval/src"/>
     </target>
     <target name="copy_scripts" depends="createJar">
-        <copy file="scripts/run.sh" todir="expression-evaluator/build/dist/bin"/>
+        <copy file="scripts/run.sh" todir="build/dist/bin"/>
     </target>
     <target name="createReadMe" depends="copy_scripts">
-        <copy file="README.md" todir="expression-evaluator"/>
+        <copy file="README.md" todir="build/dist"/>
     </target>
-    <target name="generateDocs" depends="createReadMe">
-        <javadoc packagenames="library.*,cli.*"
-                 sourcepath="src"
-                 destdir="expression-evaluator/docs"
-                 author="true" version="true"/>
-    </target>
-    <target name="dist" depends="generateDocs" >
-        <zip zipfile="evaluator-0.5.zip" basedir="expression-evaluator"/>
+    <target name="dist" depends="createReadMe" >
+        <zip zipfile="evaluator-0.5.zip" basedir="build"/>
     </target>
 </project>
 
