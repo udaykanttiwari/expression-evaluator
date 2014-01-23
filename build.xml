@@ -1,8 +1,8 @@
-<project name="expression-evaluator" basedir=".">
+<project name="expression-evaluator" default = "dist" basedir=".">
     <target name="clean">
         <delete dir="build"/>
         <delete dir="eval.zip"/>
-        <delete dir="exp-eval"/>
+        <delete dir="expression-evaluator"/>
     </target>
 
     <path id="classPath">
@@ -26,23 +26,27 @@
         </java>
     </target>
     <target name="createJar" depends="run_test">
-        <mkdir dir="exp-eval/lib"/>
-        <mkdir dir="exp-eval/bin"/>
-        <jar destfile="exp-eval/lib/exp-eval.jar" basedir="build/src"/>
+        <mkdir dir="expression-evaluator/build/dist/lib"/>
+        <mkdir dir="expression-evaluator/build/dist/bin"/>
+        <jar destfile="expression-evaluator/build/dist/lib/expression-evaluator.jar" basedir="build/src"/>
     </target>
     <target name="copy_scripts" depends="createJar">
-        <copy file="scripts/run.sh" todir="exp-eval/bin"/>
+        <copy file="scripts/run.sh" todir="expression-evaluator/build/dist/bin"/>
     </target>
     <target name="createReadMe" depends="copy_scripts">
-        <copy file="README.md" todir="exp-eval"/>
+        <copy file="README.md" todir="expression-evaluator"/>
     </target>
     <target name="generateDocs" depends="createReadMe">
         <javadoc packagenames="library.*,cli.*"
                  sourcepath="src"
-                 destdir="exp-eval/docs"
+                 destdir="expression-evaluator/docs"
                  author="true" version="true"/>
     </target>
-    <target name="dist" depends="generateDocs">
-        <zip zipfile="evaluator-0.4.zip" basedir="exp-eval"/>
+    <target name="dist" depends="generateDocs" >
+        <zip zipfile="evaluator-0.4.zip" basedir="expression-evaluator"/>
     </target>
 </project>
+
+
+
+
