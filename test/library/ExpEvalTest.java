@@ -51,7 +51,7 @@ public class ExpEvalTest {
         int expected = 24;
         ExpEval exp_eval = new ExpEval();
         int actual = exp_eval.evaluator("2 * 3 * 4");
-        Assert.assertEquals(expected,actual);
+        Assert.assertEquals(expected, actual);
     }
     @Test
     public void multiply_two_three_and_substract_get_result_twenty_four(){
@@ -123,4 +123,28 @@ public class ExpEvalTest {
         int actual = exp_eval.evaluator("(2 ^ 3)");
         Assert.assertEquals(expected,actual);
     }
+    @Test
+    public void evaluate_expression_with_nested_parentheses(){
+        int expected = 10;
+        ExpEval exp_eval = new ExpEval();
+        int actual = exp_eval.evaluator("((2 + 3)+(1 * 5))");
+        Assert.assertEquals(expected,actual);
+    } 
+     @Test
+    public void multiply_two_and_three_and_multiply_one_and_five_with_nested_brackets(){
+        int expected = 30;
+        ExpEval exp_eval = new ExpEval();
+        int actual = exp_eval.evaluator("((2 * 3)*(1 * 5))");
+        Assert.assertEquals(expected,actual);
+    }
+    @Test
+    public void divide_5_from_2_with_nested_parentheses(){
+        int expected = 2;
+        ExpEval exp_eval = new ExpEval();
+        int actual = exp_eval.evaluator("((5 / 2))");
+        Assert.assertEquals(expected,actual);
+    }
+
+
+
 }

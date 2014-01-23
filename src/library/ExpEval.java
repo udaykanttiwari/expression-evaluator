@@ -9,6 +9,10 @@ public class ExpEval {
 
         if (expression.contains("(")) {
             expression = evaluageParentheses(expression).trim();
+            if(expression.contains(")")){
+                int index= expression.indexOf(")");
+                expression = expression.substring(0,index-1);
+            }
         }
         String[] elements = expression.split(" ");
         List<String> Operators = getOperatorsAndOperands(Operands, elements);
@@ -34,15 +38,22 @@ public class ExpEval {
         int result = 0;
         List<Integer> Operands = new ArrayList<Integer>();
         if (expression.contains("(")) {
-            int startingIndexOfParentheses = expression.indexOf("(");
-            int lastIndexOfParentheses = expression.indexOf(")");
-            String innerExpression = expression.substring(startingIndexOfParentheses, lastIndexOfParentheses + 1);
-            String expressionWithoutParentheses = expression.substring(startingIndexOfParentheses + 1, lastIndexOfParentheses);
-            String[] elements = expressionWithoutParentheses.split(" ");
+            int closeBracketIndex = 0;
+            int openBracketIndex = 0;
+            openBracketIndex = expression.indexOf("(");
+            closeBracketIndex = expression.indexOf(")",closeBracketIndex);
+            String innerExpression = expression.substring(openBracketIndex, closeBracketIndex + 1);
+            String expressionWithoutBracktes = expression.substring(openBracketIndex + 1, closeBracketIndex);
+            if(expressionWithoutBracktes.contains("(")){
+                int openBracketsIndex= expressionWithoutBracktes.indexOf("(");
+                expressionWithoutBracktes= expressionWithoutBracktes.substring(openBracketsIndex+1,expressionWithoutBracktes.length());
+            }
+            String[] elements = expressionWithoutBracktes.split(" ");
             List<String> Operators = getOperatorsAndOperands(Operands, elements);
             result = evaluate(Operands, Operators);
             expression = expression.replace(innerExpression, " ".concat(Integer.toString(result).concat(" ")));
             expression = evaluageParentheses(expression);
+
         }
         return expression;
     }
