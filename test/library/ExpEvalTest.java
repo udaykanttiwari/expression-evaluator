@@ -88,4 +88,39 @@ public class ExpEvalTest {
         int actual = exp_eval.evaluator("(2 * 3)");
         Assert.assertEquals(expected,actual);
     }
+    @Test
+    public void add_two_and_three_and_five_and_six_with_multiple_parentheses(){
+        int expected = 13;
+        ExpEval exp_eval = new ExpEval();
+        int actual = exp_eval.evaluator("(2 + 3)+(5 + 3)");
+        Assert.assertEquals(expected,actual);
+    }
+    @Test
+    public void substract_two_and_three_and_add_five_and_six_with_multiple_parentheses(){
+        int expected = 7;
+        ExpEval exp_eval = new ExpEval();
+        int actual = exp_eval.evaluator("(2 - 3)+(5 + 3)");
+        Assert.assertEquals(expected,actual);
+    }
+    @Test
+    public void multiply_two_and_three_and_add_five_and_six_with_multiple_parentheses(){
+        int expected = 14;
+        ExpEval exp_eval = new ExpEval();
+        int actual = exp_eval.evaluator("(2 * 3)+(5 + 3)");
+        Assert.assertEquals(expected,actual);
+    }
+    @Test
+    public void divide_two_and_three_and_add_five_and_six_with_multiple_parentheses(){
+        int expected = 8;
+        ExpEval exp_eval = new ExpEval();
+        int actual = exp_eval.evaluator("(2 / 3)+(5 + 3)");
+        Assert.assertEquals(expected,actual);
+    }
+    @Test
+    public void evaluate_two_to_power_three(){
+        int expected = 8;
+        ExpEval exp_eval = new ExpEval();
+        int actual = exp_eval.evaluator("(2 ^ 3)");
+        Assert.assertEquals(expected,actual);
+    }
 }

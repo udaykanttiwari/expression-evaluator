@@ -4,15 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ExpEval {
-
     public int evaluator(String expression) {
         List<Integer> Operands = new ArrayList<Integer>();
 
         if (expression.contains("(")) {
-            String expressionWithoutParenthesis = removeParentheses(expression);
-            String[] elements = expressionWithoutParenthesis.split(" ");
-            List<String> Operators = getOperatorsAndOperands(Operands, elements);
-            return evaluate(Operands, Operators);
+            expression = evaluageParentheses(expression).trim();
         }
         String[] elements = expression.split(" ");
         List<String> Operators = getOperatorsAndOperands(Operands, elements);
@@ -34,15 +30,24 @@ public class ExpEval {
 
     }
 
-    private String removeParentheses(String expression) {
-        int startingIndexOfParentheses = expression.indexOf("(");
-        int lastIndexOfParentheses = expression.indexOf(")");
-        String expressionWithoutParenthesis = expression.substring(startingIndexOfParentheses + 1, lastIndexOfParentheses);
-        return expressionWithoutParenthesis;
+    private String evaluageParentheses(String expression) {
+        int result = 0;
+        List<Integer> Operands = new ArrayList<Integer>();
+        if (expression.contains("(")) {
+            int startingIndexOfParentheses = expression.indexOf("(");
+            int lastIndexOfParentheses = expression.indexOf(")");
+            String innerExpression = expression.substring(startingIndexOfParentheses, lastIndexOfParentheses + 1);
+            String expressionWithoutParentheses = expression.substring(startingIndexOfParentheses + 1, lastIndexOfParentheses);
+            String[] elements = expressionWithoutParentheses.split(" ");
+            List<String> Operators = getOperatorsAndOperands(Operands, elements);
+            result = evaluate(Operands, Operators);
+            expression = expression.replace(innerExpression, " ".concat(Integer.toString(result).concat(" ")));
+            expression = evaluageParentheses(expression);
+        }
+        return expression;
     }
 
     private int evaluate(List<Integer> Operands, List<String> Operators) {
-
         for (int i = 0; i < Operators.size(); i++) {
             int first = Operands.get(i);
             int result = 0;
@@ -59,7 +64,6 @@ public class ExpEval {
                 Operands.set(i + 1, (int) Math.pow(first, second));
         }
         int result = Operands.get(Operands.size() - 1);
-
         return result;
     }
 }
