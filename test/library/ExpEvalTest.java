@@ -214,5 +214,12 @@ public class ExpEvalTest {
         int actual = exp_eval.evaluator("5*(-3)");
         Assert.assertEquals(expected, actual);
     }
+    @Test
+    public void evaluate_shold_give_false_when_brackets_or_not_same(){
+        int expected = 0;
+        ExpEval exp_eval = new ExpEval();
+        int actual = exp_eval.evaluator("5*(-3");
+        Assert.assertEquals(expected, actual);
+    }
 
 }
