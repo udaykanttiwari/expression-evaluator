@@ -1,7 +1,5 @@
 package library;
 
-
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,8 +7,7 @@ public class ExpEval {
     public double evaluator(String expression) {
         List<Double> Operands = new ArrayList<Double>();
         if (0 == compareParentheses(expression)) {
-            System.out.println("wrong input");
-            return 0;
+            System.out.println("");
         }
         expression = handleSpaces(expression);
 
@@ -122,7 +119,9 @@ public class ExpEval {
                 .replaceAll("\\^", " ^ ")
                 .replaceAll("\\+   ", " + ")
                 .replaceFirst("^ - ", "-").replaceAll("\\( - ", "(-")
-                .replaceAll("\\+  - ", "- ").replaceAll("\\*  -","*");
+                .replaceAll("\\+  - ", "- ").replaceAll("\\*  -","*")
+                .replaceFirst("^ -","-").replaceAll(" -  - "," - ");
+        System.out.println(expression);
         return expression;
     }
 

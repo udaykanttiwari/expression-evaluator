@@ -271,4 +271,39 @@ public class ExpEvalTest {
         double actual = exp_eval.evaluator("22*");
         Assert.assertEquals(expected, actual,1);
     }
+    @Test
+    public void evaluate_twenty_two_with_nested_parentheses(){
+        double expected = 22.0;
+        ExpEval exp_eval = new ExpEval();
+        double actual = exp_eval.evaluator("((22*))");
+        Assert.assertEquals(expected, actual,1);
+    }
+    @Test
+    public void evaluate_twenty_two_the_power_ten(){
+        double expected = 1024;
+        ExpEval exp_eval = new ExpEval();
+        double actual = exp_eval.evaluator("((2 ^ 10))");
+        Assert.assertEquals(expected, actual,1);
+    }
+    @Test
+    public void evaluate_one_and_a(){
+        double expected = 1024;
+        ExpEval exp_eval = new ExpEval();
+        double actual = exp_eval.evaluator("((1+a))");
+        Assert.assertEquals(expected, actual,1);
+    }
+    @Test
+    public void evaluate_one_minus_minus_one(){
+        double expected = 0.0;
+        ExpEval exp_eval = new ExpEval();
+        double actual = exp_eval.evaluator("((1--1))");
+        Assert.assertEquals(expected, actual,1);
+    }
+    @Test
+    public void evaluate_substract_one_point_two_five_with_point_two_five(){
+        double expected = 1.0;
+        ExpEval exp_eval = new ExpEval();
+        double actual = exp_eval.evaluator("((1.25--.25))");
+        Assert.assertEquals(expected, actual,1);
+    }
 }
