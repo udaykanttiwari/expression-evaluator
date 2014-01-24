@@ -250,5 +250,25 @@ public class ExpEvalTest {
         double actual = exp_eval.evaluator("1.25 - 1.25");
         Assert.assertEquals(expected, actual,1);
     }
-
+    @Test
+    public void subtract_minus_one_minus_one(){
+        double expected = -2.0;
+        ExpEval exp_eval = new ExpEval();
+        double actual = exp_eval.evaluator("-1-1");
+        Assert.assertEquals(expected, actual,1);
+    }
+    @Test
+    public void evaluate_twenty_two_plus(){
+        double expected = 22.0;
+        ExpEval exp_eval = new ExpEval();
+        double actual = exp_eval.evaluator("22+");
+        Assert.assertEquals(expected, actual,1);
+    }
+    @Test
+    public void evaluate_twenty_two_asterisk(){
+        double expected = 22.0;
+        ExpEval exp_eval = new ExpEval();
+        double actual = exp_eval.evaluator("22*");
+        Assert.assertEquals(expected, actual,1);
+    }
 }
