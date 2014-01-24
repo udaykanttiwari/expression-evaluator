@@ -40,12 +40,10 @@ public class ExpEval {
     }
 
     private String evaluageParentheses(String expression) {
+        System.out.println(expression);
         double result = 0;
         List<Double> Operands = new ArrayList<Double>();
-
-
         if (expression.contains("("))
-
         {
             int  closeBracketIndex = 0;
             int  openBracketIndex = 0;
@@ -120,9 +118,10 @@ public class ExpEval {
                 .replaceAll("\\+   ", " + ")
                 .replaceFirst("^ - ", "-").replaceAll("\\( - ", "(-")
                 .replaceAll("\\+  - ", "- ").replaceAll("\\*  -","*")
-                .replaceFirst("^ -","-").replaceAll(" -  - "," - ");
-        System.out.println(expression);
+                .replaceFirst("^ -","-").replaceAll(" -  - "," + ");
+        //System.out.println(expression);
         return expression;
+
     }
 
 }

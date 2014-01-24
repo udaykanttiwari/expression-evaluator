@@ -167,7 +167,7 @@ public class ExpEvalTest {
 
     @Test
     public void validate_user_input() {
-        double expected = 0;
+        double expected = 2.5;
         ExpEval exp_eval = new ExpEval();
         double actual = exp_eval.evaluator("((5 / 2)");
         Assert.assertEquals(expected, actual,1);
@@ -215,8 +215,8 @@ public class ExpEvalTest {
         double actual = exp_eval.evaluator("5*(-3)");
         Assert.assertEquals(expected, actual,1);
     }
-    @Test
-    public void evaluate_shold_give_false_when_brackets_or_not_same(){
+    @Test (expected = StringIndexOutOfBoundsException.class)
+    public void evaluate_shuld_give_false_when_brackets_or_not_same(){
         double expected = 0;
         ExpEval exp_eval = new ExpEval();
         double actual = exp_eval.evaluator("5*(-3");
@@ -285,16 +285,11 @@ public class ExpEvalTest {
         double actual = exp_eval.evaluator("((2 ^ 10))");
         Assert.assertEquals(expected, actual,1);
     }
-    @Test
-    public void evaluate_one_and_a(){
-        double expected = 1024;
-        ExpEval exp_eval = new ExpEval();
-        double actual = exp_eval.evaluator("((1+a))");
-        Assert.assertEquals(expected, actual,1);
-    }
+
+
     @Test
     public void evaluate_one_minus_minus_one(){
-        double expected = 0.0;
+        double expected = 2.0;
         ExpEval exp_eval = new ExpEval();
         double actual = exp_eval.evaluator("((1--1))");
         Assert.assertEquals(expected, actual,1);

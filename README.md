@@ -19,6 +19,10 @@ Now you are ready to run these commands
 ####RUN COMMANDS
 
 `run.sh "2 + 3"`
+
+#### VERSION 0.81( in this version our program is able to solve negative values problems)
+    * example is -> "5--3"
+
 #### VERSION 0.8( its take multiple operators with multiple operands with nested bracket and able to handle userInput
 if user give expression without space and if number of brackets not same and also able to handle decimal point number )
       * Example -> "(5+4)"  or "(5+4"
