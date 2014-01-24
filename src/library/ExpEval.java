@@ -1,13 +1,13 @@
 package library;
 
-import com.sun.org.apache.regexp.internal.recompile;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ExpEval {
-    public int evaluator(String expression) {
-        List<Integer> Operands = new ArrayList<Integer>();
+    public double evaluator(String expression) {
+        List<Double> Operands = new ArrayList<Double>();
         if (0 == compareParentheses(expression)) {
             System.out.println("wrong input");
             return 0;
@@ -18,7 +18,7 @@ public class ExpEval {
             expression = evaluageParentheses(expression).trim();
             expression = handleSpaces(expression);
             if (expression.contains(")")) {
-                int index = expression.indexOf(")");
+                int  index = expression.indexOf(")");
                 expression = expression.substring(0, index - 1);
             }
         }
@@ -27,12 +27,12 @@ public class ExpEval {
         return evaluate(Operands, Operators);
     }
 
-    private List<String> getOperatorsAndOperands(List<Integer> operands, String[] elements) {
+    private List<String> getOperatorsAndOperands(List<Double> operands, String[] elements) {
         List<String> operators = new ArrayList<String>();
 
         for (String s : elements) {
             try {
-                operands.add(Integer.parseInt(s));
+                operands.add(Double.parseDouble(s));
 
             } catch (Exception ex) {
                 operators.add(s);
@@ -43,27 +43,27 @@ public class ExpEval {
     }
 
     private String evaluageParentheses(String expression) {
-        int result = 0;
-        List<Integer> Operands = new ArrayList<Integer>();
+        double result = 0;
+        List<Double> Operands = new ArrayList<Double>();
 
 
         if (expression.contains("("))
 
         {
-            int closeBracketIndex = 0;
-            int openBracketIndex = 0;
+            int  closeBracketIndex = 0;
+            int  openBracketIndex = 0;
             openBracketIndex = expression.indexOf("(");
             closeBracketIndex = expression.indexOf(")", closeBracketIndex);
             String innerExpression = expression.substring(openBracketIndex, closeBracketIndex + 1);
             String expressionWithoutBracktes = expression.substring(openBracketIndex + 1, closeBracketIndex);
             if (expressionWithoutBracktes.contains("(")) {
-                int openBracketsIndex = expressionWithoutBracktes.indexOf("(");
+                int  openBracketsIndex = expressionWithoutBracktes.indexOf("(");
                 expressionWithoutBracktes = expressionWithoutBracktes.substring(openBracketsIndex + 1, expressionWithoutBracktes.length());
             }
             String[] elements = expressionWithoutBracktes.split(" ");
             List<String> Operators = getOperatorsAndOperands(Operands, elements);
             result = evaluate(Operands, Operators);
-            expression = expression.replace(innerExpression, " ".concat(Integer.toString(result).concat(" ")));
+            expression = expression.replace(innerExpression, " ".concat(Double.toString(result).concat(" ")));
             expression = evaluageParentheses(expression);
 
         }
@@ -73,13 +73,13 @@ public class ExpEval {
         return expression;
     }
 
-    private int evaluate(List<Integer> Operands, List<String> Operators) {
+    private double evaluate(List<Double> Operands, List<String> Operators) {
         if (Operands.size() < 2)
             return Operands.get(0);
         for (int i = 0; i < Operators.size(); i++) {
-            int first = Operands.get(i);
-            int result = 0;
-            int second = Operands.get(i + 1);
+            double first = Operands.get(i);
+            double result = 0;
+            double second = Operands.get(i + 1);
             if (Operators.get(i).contains("+"))
                 Operands.set(i + 1, first + second);
             if (Operators.get(i).contains("-"))
@@ -89,15 +89,15 @@ public class ExpEval {
             if (Operators.get(i).contains("/"))
                 Operands.set(i + 1, first / second);
             if (Operators.get(i).contains("^"))
-                Operands.set(i + 1, (int) Math.pow(first, second));
+                Operands.set(i + 1, (double) Math.pow(first, second));
         }
-        int result = Operands.get(Operands.size() - 1);
+        double result = Operands.get(Operands.size() - 1);
         return result;
     }
 
-    public int compareParentheses(String expression) {
-        int openBracketsCount = 0;
-        int closeBracketsCount = 0;
+    public double compareParentheses(String expression) {
+        double openBracketsCount = 0;
+        double closeBracketsCount = 0;
         String[] elements = expression.split("");
         for (String element : elements) {
             if (element.contains("(")) {
