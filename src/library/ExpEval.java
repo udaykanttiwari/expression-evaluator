@@ -6,16 +6,12 @@ import java.util.List;
 public class ExpEval {
     public double evaluator(String expression) {
         List<Double> Operands = new ArrayList<Double>();
-        if (0 == compareParentheses(expression)) {
-            System.out.println("");
-        }
         expression = handleSpaces(expression);
-
         if (expression.contains("(")) {
             expression = evaluageParentheses(expression).trim();
             expression = handleSpaces(expression);
             if (expression.contains(")")) {
-                int  index = expression.indexOf(")");
+                int index = expression.indexOf(")");
                 expression = expression.substring(0, index - 1);
             }
         }
@@ -40,19 +36,17 @@ public class ExpEval {
     }
 
     private String evaluageParentheses(String expression) {
-        System.out.println(expression);
         double result = 0;
         List<Double> Operands = new ArrayList<Double>();
-        if (expression.contains("("))
-        {
-            int  closeBracketIndex = 0;
-            int  openBracketIndex = 0;
+        if (expression.contains("(")) {
+            int closeBracketIndex = 0;
+            int openBracketIndex = 0;
             openBracketIndex = expression.indexOf("(");
             closeBracketIndex = expression.indexOf(")", closeBracketIndex);
             String innerExpression = expression.substring(openBracketIndex, closeBracketIndex + 1);
             String expressionWithoutBracktes = expression.substring(openBracketIndex + 1, closeBracketIndex);
             if (expressionWithoutBracktes.contains("(")) {
-                int  openBracketsIndex = expressionWithoutBracktes.indexOf("(");
+                int openBracketsIndex = expressionWithoutBracktes.indexOf("(");
                 expressionWithoutBracktes = expressionWithoutBracktes.substring(openBracketsIndex + 1, expressionWithoutBracktes.length());
             }
             String[] elements = expressionWithoutBracktes.split(" ");
@@ -69,9 +63,12 @@ public class ExpEval {
     }
 
     private double evaluate(List<Double> Operands, List<String> Operators) {
-        if (Operands.size() < 2)
-            return Operands.get(0);
+        for (String Operator : Operators) {
+            System.out.println(Operator);
+        }
+        System.out.println(Operands.get(0));
         for (int i = 0; i < Operators.size(); i++) {
+            System.out.println("coming here");
             double first = Operands.get(i);
             double result = 0;
             double second = Operands.get(i + 1);
@@ -90,23 +87,6 @@ public class ExpEval {
         return result;
     }
 
-    public double compareParentheses(String expression) {
-        double openBracketsCount = 0;
-        double closeBracketsCount = 0;
-        String[] elements = expression.split("");
-        for (String element : elements) {
-            if (element.contains("(")) {
-                openBracketsCount++;
-            }
-            if (element.contains(")")) {
-                closeBracketsCount++;
-            }
-        }
-        if (openBracketsCount == closeBracketsCount)
-            return 1;
-        return 0;
-
-    }
 
     private String handleSpaces(String expression) {
         expression = expression.replaceAll(" +", "");
@@ -117,9 +97,8 @@ public class ExpEval {
                 .replaceAll("\\^", " ^ ")
                 .replaceAll("\\+   ", " + ")
                 .replaceFirst("^ - ", "-").replaceAll("\\( - ", "(-")
-                .replaceAll("\\+  - ", "- ").replaceAll("\\*  -","*")
-                .replaceFirst("^ -","-").replaceAll(" -  - "," + ");
-        //System.out.println(expression);
+                .replaceAll("\\+  - ", "- ").replaceAll("\\*  -", "*")
+                .replaceFirst("^ -", "-").replaceAll(" -  - ", " + ");
         return expression;
 
     }

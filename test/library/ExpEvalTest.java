@@ -257,21 +257,21 @@ public class ExpEvalTest {
         double actual = exp_eval.evaluator("-1-1");
         Assert.assertEquals(expected, actual,1);
     }
-    @Test
+    @Test (expected = IndexOutOfBoundsException.class )
     public void evaluate_twenty_two_plus(){
         double expected = 22.0;
         ExpEval exp_eval = new ExpEval();
         double actual = exp_eval.evaluator("22+");
         Assert.assertEquals(expected, actual,1);
     }
-    @Test
+    @Test (expected = IndexOutOfBoundsException.class )
     public void evaluate_twenty_two_asterisk(){
         double expected = 22.0;
         ExpEval exp_eval = new ExpEval();
         double actual = exp_eval.evaluator("22*");
         Assert.assertEquals(expected, actual,1);
     }
-    @Test
+    @Test (expected = IndexOutOfBoundsException.class)
     public void evaluate_twenty_two_with_nested_parentheses(){
         double expected = 22.0;
         ExpEval exp_eval = new ExpEval();
@@ -299,6 +299,13 @@ public class ExpEvalTest {
         double expected = 1.0;
         ExpEval exp_eval = new ExpEval();
         double actual = exp_eval.evaluator("((1.25--.25))");
+        Assert.assertEquals(expected, actual,1);
+    }
+    @Test (expected = IndexOutOfBoundsException.class )
+    public void evaluate_one_plus_a(){
+        double expected = 3;
+        ExpEval exp_eval = new ExpEval();
+        double actual = exp_eval.evaluator("((1+a))");
         Assert.assertEquals(expected, actual,1);
     }
 }

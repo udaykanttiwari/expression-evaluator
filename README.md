@@ -18,7 +18,9 @@ in the PATH environment > put the following stirng
 Now you are ready to run these commands
 ####RUN COMMANDS
 
-`run.sh "2 + 3"`
+`run.sh "2 + 3"
+#### VERSION 0.82   (in this version our program is able  to solve values is Preceded by any operator)
+    * example is ->"5-"
 
 #### VERSION 0.81( in this version our program is able to solve negative values problems)
     * example is -> "5--3"
