@@ -207,5 +207,12 @@ public class ExpEvalTest {
         int actual = exp_eval.evaluator("5+(-3)");
         Assert.assertEquals(expected, actual);
     }
+    @Test
+    public void evaluate_expression_multiply_five_with_three(){
+        int expected = 15;
+        ExpEval exp_eval = new ExpEval();
+        int actual = exp_eval.evaluator("5*(-3)");
+        Assert.assertEquals(expected, actual);
+    }
 
 }

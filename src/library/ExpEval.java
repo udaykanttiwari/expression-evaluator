@@ -122,8 +122,7 @@ public class ExpEval {
                 .replaceAll("\\^", " ^ ")
                 .replaceAll("\\+   ", " + ")
                 .replaceFirst("^ - ", "-").replaceAll("\\( - ", "(-")
-                .replaceAll("\\+  - ", "- ");
-        System.out.println(expression);
+                .replaceAll("\\+  - ", "- ").replaceAll("\\*  -","*");
         return expression;
     }
 

@@ -19,7 +19,15 @@ Now you are ready to run these commands
 ####RUN COMMANDS
 
 `run.sh "2 + 3"`
-#### VERSION 0.5(take multiple operators with two multiple operands with nested bracket)
+
+#### VERSION 0.6(take multiple operators with multiple operands with nested bracket)
+
+   Our Program will accept a string expression which would have  space between operands and operators .
+    it will support operator '+','-','*','/','^'
+    It should not contain decimal point numbers, only integers are allowed.
+
+
+#### VERSION 0.5(take multiple operators with multiple operands with nested bracket)
 
    Our Program will accept a string expression which would have  space between operands and operators .
     it will support operator '+','-','*','/','^'
