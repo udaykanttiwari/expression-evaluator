@@ -86,7 +86,6 @@ public class ExpEval {
 
 
     private String handleSpaces(String expression) {
-
         expression = expression.replaceAll(" +", "");
         expression = expression.replaceAll("\\+", " + ")
                 .replaceAll("\\-", " - ")
