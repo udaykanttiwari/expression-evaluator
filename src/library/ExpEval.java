@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ExpEval {
-    public double evaluator(String expression) {
+    public double evaluator(String expression){
         List<Double> Operands = new ArrayList<Double>();
         expression = handleSpaces(expression);
         if (expression.contains("(")) {
@@ -80,7 +80,6 @@ public class ExpEval {
             }
         }
         double result = Operands.get(Operands.size() - 1);
-
         return result;
     }
 
