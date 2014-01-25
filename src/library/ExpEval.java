@@ -11,6 +11,7 @@ public class ExpEval {
             expression = evaluageParentheses(expression).trim();
             expression = handleSpaces(expression);
             if (expression.contains(")")) {
+
                 int index = expression.indexOf(")");
                 expression = expression.substring(0, index - 1);
             }
