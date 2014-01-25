@@ -358,6 +358,6 @@ public class ExpEvalTest {
         double expected = 0.125;
         ExpEval exp_eval = new ExpEval();
         double actual = exp_eval.evaluator("2^-3");
-        Assert.assertEquals(expected, actual, 1);
+        Assert.assertEquals(expected,actual, 1);
     }
 }
