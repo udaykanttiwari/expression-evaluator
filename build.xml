@@ -34,7 +34,7 @@
     <target name="copy_scripts" depends="createJar">
         <copy file="scripts/run.sh" todir="build/dist/bin"/>
     </target>
-    <target name="createReadMe" depends="copy_scripts">
+    <target name = "createReadMe" depends="copy_scripts">
         <copy file="README.md" todir="build/dist"/>
     </target>
     <target name="dist" depends="createReadMe" >
