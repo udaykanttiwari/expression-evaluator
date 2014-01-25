@@ -332,4 +332,32 @@ public class ExpEvalTest {
         double actual = exp_eval.evaluator("2 ^ -3");
         Assert.assertEquals(expected, actual, 1);
     }
+    @Test
+    public void divide_twenty_two_by_three_with_integer() {
+        double expected = 7.3333;
+        ExpEval exp_eval = new ExpEval();
+        double actual = exp_eval.evaluator("22/3");
+        Assert.assertEquals(expected, actual, 1);
+    }
+    @Test
+    public void evaluate_point_five() {
+        double expected = 0.5;
+        ExpEval exp_eval = new ExpEval();
+        double actual = exp_eval.evaluator("0.5");
+        Assert.assertEquals(expected, actual, 1);
+    }
+    @Test (expected =IndexOutOfBoundsException.class)
+    public void evaluate_expression_with_(){
+        double expected = 0.5;
+        ExpEval exp_eval = new ExpEval();
+        double actual = exp_eval.evaluator("@^-3");
+        Assert.assertEquals(expected, actual, 1);
+    }
+    @Test
+    public void evaluate_two_to_the_power_minus_three_withuot_space(){
+        double expected = 0.125;
+        ExpEval exp_eval = new ExpEval();
+        double actual = exp_eval.evaluator("2^-3");
+        Assert.assertEquals(expected, actual, 1);
+    }
 }
