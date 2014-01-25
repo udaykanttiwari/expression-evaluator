@@ -38,7 +38,7 @@
         <copy file="README.md" todir="build/dist"/>
     </target>
     <target name="dist" depends="createReadMe" >
-        <zip zipfile="evaluator-0.5.zip" basedir="build"/>
+        <zip zipfile="evaluator-0.84.zip" basedir="build"/>
     </target>
 </project>
 

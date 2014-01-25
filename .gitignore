@@ -1,6 +1,5 @@
 *.class
 *.iml
 *.idea
-*.zip
 out
 build
