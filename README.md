@@ -19,6 +19,8 @@ Now you are ready to run these commands
 ####RUN COMMANDS
 
 `run.sh "2 + 3"
+#### VERSION 0.83 (IN this version our program is able to solve power of minus values)
+    * example is ->(2 ^ -3)
 #### VERSION 0.82   (in this version our program is able  to solve values is Preceded by any operator)
     * example is ->"5-"
 
