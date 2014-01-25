@@ -10,7 +10,7 @@ public class ExpEvalTest {
         ExpEval exp_eval = new ExpEval();
 
         double actual = exp_eval.evaluator("1 + 2");
-        Assert.assertEquals(expected, actual,1);
+        Assert.assertEquals(expected, actual, 1);
     }
 
     @Test
@@ -18,7 +18,7 @@ public class ExpEvalTest {
         double expected = 4;
         ExpEval exp_eval = new ExpEval();
         double actual = exp_eval.evaluator("8 - 4");
-        Assert.assertEquals(expected, actual,1);
+        Assert.assertEquals(expected, actual, 1);
     }
 
     @Test
@@ -26,7 +26,7 @@ public class ExpEvalTest {
         double expected = 32;
         ExpEval exp_eval = new ExpEval();
         double actual = exp_eval.evaluator("8 * 4");
-        Assert.assertEquals(expected, actual,1);
+        Assert.assertEquals(expected, actual, 1);
     }
 
     @Test
@@ -34,7 +34,7 @@ public class ExpEvalTest {
         double expected = 2;
         ExpEval exp_eval = new ExpEval();
         double actual = exp_eval.evaluator("8 / 4");
-        Assert.assertEquals(expected, actual,1);
+        Assert.assertEquals(expected, actual, 1);
     }
 
     @Test
@@ -42,7 +42,7 @@ public class ExpEvalTest {
         double expected = 256;
         ExpEval exp_eval = new ExpEval();
         double actual = exp_eval.evaluator("4 ^ 4");
-        Assert.assertEquals(expected, actual,1);
+        Assert.assertEquals(expected, actual, 1);
     }
 
     @Test
@@ -50,7 +50,7 @@ public class ExpEvalTest {
         double expected = 4;
         ExpEval exp_eval = new ExpEval();
         double actual = exp_eval.evaluator("5 - 4 + 3");
-        Assert.assertEquals(expected, actual,1);
+        Assert.assertEquals(expected, actual, 1);
     }
 
     @Test
@@ -58,7 +58,7 @@ public class ExpEvalTest {
         double expected = 24;
         ExpEval exp_eval = new ExpEval();
         double actual = exp_eval.evaluator("2 * 3 * 4");
-        Assert.assertEquals(expected, actual,1);
+        Assert.assertEquals(expected, actual, 1);
     }
 
     @Test
@@ -66,7 +66,7 @@ public class ExpEvalTest {
         double expected = 2;
         ExpEval exp_eval = new ExpEval();
         double actual = exp_eval.evaluator("2 * 3 - 4");
-        Assert.assertEquals(expected, actual,1);
+        Assert.assertEquals(expected, actual, 1);
     }
 
     @Test
@@ -74,7 +74,7 @@ public class ExpEvalTest {
         double expected = -4;
         ExpEval exp_eval = new ExpEval();
         double actual = exp_eval.evaluator("2 / 3 - 4");
-        Assert.assertEquals(expected, actual,1);
+        Assert.assertEquals(expected, actual, 1);
     }
 
     @Test
@@ -82,7 +82,7 @@ public class ExpEvalTest {
         double expected = 5;
         ExpEval exp_eval = new ExpEval();
         double actual = exp_eval.evaluator("(2 + 3)");
-        Assert.assertEquals(expected, actual,1);
+        Assert.assertEquals(expected, actual, 1);
     }
 
     @Test
@@ -90,7 +90,7 @@ public class ExpEvalTest {
         double expected = -1;
         ExpEval exp_eval = new ExpEval();
         double actual = exp_eval.evaluator("(2 - 3)");
-        Assert.assertEquals(expected, actual,1);
+        Assert.assertEquals(expected, actual, 1);
     }
 
     @Test
@@ -98,7 +98,7 @@ public class ExpEvalTest {
         double expected = 6;
         ExpEval exp_eval = new ExpEval();
         double actual = exp_eval.evaluator("(2 * 3)");
-        Assert.assertEquals(expected, actual,1);
+        Assert.assertEquals(expected, actual, 1);
     }
 
     @Test
@@ -106,7 +106,7 @@ public class ExpEvalTest {
         double expected = 13;
         ExpEval exp_eval = new ExpEval();
         double actual = exp_eval.evaluator("(2 + 3)+(5 + 3)");
-        Assert.assertEquals(expected, actual,1);
+        Assert.assertEquals(expected, actual, 1);
     }
 
     @Test
@@ -114,7 +114,7 @@ public class ExpEvalTest {
         double expected = 7;
         ExpEval exp_eval = new ExpEval();
         double actual = exp_eval.evaluator("(2 - 3)+(5 + 3)");
-        Assert.assertEquals(expected, actual,1);
+        Assert.assertEquals(expected, actual, 1);
     }
 
     @Test
@@ -122,7 +122,7 @@ public class ExpEvalTest {
         double expected = 14;
         ExpEval exp_eval = new ExpEval();
         double actual = exp_eval.evaluator("(2 * 3)+(5 + 3)");
-        Assert.assertEquals(expected, actual,1);
+        Assert.assertEquals(expected, actual, 1);
     }
 
     @Test
@@ -130,7 +130,7 @@ public class ExpEvalTest {
         double expected = 8;
         ExpEval exp_eval = new ExpEval();
         double actual = exp_eval.evaluator("(2 / 3)+(5 + 3)");
-        Assert.assertEquals(expected, actual,1);
+        Assert.assertEquals(expected, actual, 1);
     }
 
     @Test
@@ -138,7 +138,7 @@ public class ExpEvalTest {
         double expected = 8;
         ExpEval exp_eval = new ExpEval();
         double actual = exp_eval.evaluator("(2 ^ 3)");
-        Assert.assertEquals(expected, actual,1);
+        Assert.assertEquals(expected, actual, 1);
     }
 
     @Test
@@ -146,7 +146,7 @@ public class ExpEvalTest {
         double expected = 10;
         ExpEval exp_eval = new ExpEval();
         double actual = exp_eval.evaluator("((2 + 3)+(1 * 5))");
-        Assert.assertEquals(expected, actual,1);
+        Assert.assertEquals(expected, actual, 1);
     }
 
     @Test
@@ -154,7 +154,7 @@ public class ExpEvalTest {
         double expected = 30;
         ExpEval exp_eval = new ExpEval();
         double actual = exp_eval.evaluator("((2 * 3)*(1 * 5))");
-        Assert.assertEquals(expected, actual,1);
+        Assert.assertEquals(expected, actual, 1);
     }
 
     @Test
@@ -162,7 +162,7 @@ public class ExpEvalTest {
         double expected = 2;
         ExpEval exp_eval = new ExpEval();
         double actual = exp_eval.evaluator("((5 / 2))");
-        Assert.assertEquals(expected, actual,1);
+        Assert.assertEquals(expected, actual, 1);
     }
 
     @Test
@@ -170,7 +170,7 @@ public class ExpEvalTest {
         double expected = 2.5;
         ExpEval exp_eval = new ExpEval();
         double actual = exp_eval.evaluator("((5 / 2)");
-        Assert.assertEquals(expected, actual,1);
+        Assert.assertEquals(expected, actual, 1);
     }
 
     @Test
@@ -178,134 +178,158 @@ public class ExpEvalTest {
         double expected = 10;
         ExpEval exp_eval = new ExpEval();
         double actual = exp_eval.evaluator("2+8");
-        Assert.assertEquals(expected, actual,1);
+        Assert.assertEquals(expected, actual, 1);
     }
+
     @Test
     public void evaluate_expression_with_negative_values() {
         double expected = 6;
         ExpEval exp_eval = new ExpEval();
         double actual = exp_eval.evaluator("-2+8");
-        Assert.assertEquals(expected, actual,1);
+        Assert.assertEquals(expected, actual, 1);
     }
+
     @Test
     public void evaluate_expression_minus_eight() {
         double expected = -8;
         ExpEval exp_eval = new ExpEval();
         double actual = exp_eval.evaluator("(-8)");
-        Assert.assertEquals(expected, actual,1);
+        Assert.assertEquals(expected, actual, 1);
     }
+
     @Test
-    public void evaluate_expression_plus_five(){
-        double expected = 8;
-        ExpEval exp_eval = new ExpEval();
-        double actual = exp_eval.evaluator("(+8)");
-        Assert.assertEquals(expected, actual,1);
-    }
-    @Test
-    public void evaluate_expression_five_plus_minus_three(){
+    public void evaluate_expression_five_plus_minus_three() {
         double expected = 2;
         ExpEval exp_eval = new ExpEval();
         double actual = exp_eval.evaluator("5+(-3)");
-        Assert.assertEquals(expected, actual,1);
+        Assert.assertEquals(expected, actual, 1);
     }
+
     @Test
-    public void evaluate_expression_multiply_five_with_three(){
+    public void evaluate_expression_multiply_five_with_three() {
         double expected = 15;
         ExpEval exp_eval = new ExpEval();
         double actual = exp_eval.evaluator("5*(-3)");
-        Assert.assertEquals(expected, actual,1);
+        Assert.assertEquals(expected, actual, 1);
     }
-    @Test (expected = StringIndexOutOfBoundsException.class)
-    public void evaluate_shuld_give_false_when_brackets_or_not_same(){
+
+    @Test(expected = StringIndexOutOfBoundsException.class)
+    public void evaluate_shuld_give_false_when_brackets_or_not_same() {
         double expected = 0;
         ExpEval exp_eval = new ExpEval();
         double actual = exp_eval.evaluator("5*(-3");
-        Assert.assertEquals(expected, actual,1);
+        Assert.assertEquals(expected, actual, 1);
     }
+
     @Test
-    public void add_two_and_three_double_values(){
+    public void add_two_and_three_double_values() {
         double expected = 5.0;
         ExpEval exp_eval = new ExpEval();
         double actual = exp_eval.evaluator("2.0 + 3.0");
-        Assert.assertEquals(expected, actual,1);
+        Assert.assertEquals(expected, actual, 1);
     }
+
     @Test
-    public void multiply_two_double_values(){
+    public void multiply_two_double_values() {
         double expected = 6.0;
         ExpEval exp_eval = new ExpEval();
         double actual = exp_eval.evaluator("2.0*3.0");
-        Assert.assertEquals(expected, actual,1);
+        Assert.assertEquals(expected, actual, 1);
     }
+
     @Test
-    public void divide_twenty_two_by_three(){
+    public void divide_twenty_two_by_three() {
         double expected = 7.333333333;
         ExpEval exp_eval = new ExpEval();
         double actual = exp_eval.evaluator("22.0/3.0");
-        Assert.assertEquals(expected, actual,1);
+        Assert.assertEquals(expected, actual, 1);
     }
+
     @Test
-    public void subtract_one_point_two_five_with_its_own(){
+    public void subtract_one_point_two_five_with_its_own() {
         double expected = 0.0;
         ExpEval exp_eval = new ExpEval();
         double actual = exp_eval.evaluator("1.25 - 1.25");
-        Assert.assertEquals(expected, actual,1);
+        Assert.assertEquals(expected, actual, 1);
     }
+
     @Test
-    public void subtract_minus_one_minus_one(){
+    public void subtract_minus_one_minus_one() {
         double expected = -2.0;
         ExpEval exp_eval = new ExpEval();
         double actual = exp_eval.evaluator("-1-1");
-        Assert.assertEquals(expected, actual,1);
+        Assert.assertEquals(expected, actual, 1);
     }
-    @Test (expected = IndexOutOfBoundsException.class )
-    public void evaluate_twenty_two_plus(){
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void evaluate_twenty_two_plus() {
         double expected = 22.0;
         ExpEval exp_eval = new ExpEval();
         double actual = exp_eval.evaluator("22+");
-        Assert.assertEquals(expected, actual,1);
+        Assert.assertEquals(expected, actual, 1);
     }
-    @Test (expected = IndexOutOfBoundsException.class )
-    public void evaluate_twenty_two_asterisk(){
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void evaluate_twenty_two_asterisk() {
         double expected = 22.0;
         ExpEval exp_eval = new ExpEval();
         double actual = exp_eval.evaluator("22*");
-        Assert.assertEquals(expected, actual,1);
+        Assert.assertEquals(expected, actual, 1);
     }
-    @Test (expected = IndexOutOfBoundsException.class)
-    public void evaluate_twenty_two_with_nested_parentheses(){
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void evaluate_twenty_two_with_nested_parentheses() {
         double expected = 22.0;
         ExpEval exp_eval = new ExpEval();
         double actual = exp_eval.evaluator("((22*))");
-        Assert.assertEquals(expected, actual,1);
+        Assert.assertEquals(expected, actual, 1);
     }
+
     @Test
-    public void evaluate_twenty_two_the_power_ten(){
+    public void evaluate_twenty_two_the_power_ten() {
         double expected = 1024;
         ExpEval exp_eval = new ExpEval();
         double actual = exp_eval.evaluator("((2 ^ 10))");
-        Assert.assertEquals(expected, actual,1);
+        Assert.assertEquals(expected, actual, 1);
     }
 
 
     @Test
-    public void evaluate_one_minus_minus_one(){
+    public void evaluate_one_minus_minus_one() {
         double expected = 2.0;
         ExpEval exp_eval = new ExpEval();
         double actual = exp_eval.evaluator("((1--1))");
-        Assert.assertEquals(expected, actual,1);
+        Assert.assertEquals(expected, actual, 1);
     }
+
     @Test
-    public void evaluate_substract_one_point_two_five_with_point_two_five(){
-        double expected = 1.0;
+    public void evaluate_substract_one_point_two_five_with_point_two_five() {
+        double expected = 1.5;
         ExpEval exp_eval = new ExpEval();
         double actual = exp_eval.evaluator("((1.25--.25))");
-        Assert.assertEquals(expected, actual,1);
+        Assert.assertEquals(expected, actual, 1);
     }
-    @Test (expected = IndexOutOfBoundsException.class )
-    public void evaluate_one_plus_a(){
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void evaluate_one_plus_a() {
         double expected = 3;
         ExpEval exp_eval = new ExpEval();
         double actual = exp_eval.evaluator("((1+a))");
-        Assert.assertEquals(expected, actual,1);
+        Assert.assertEquals(expected, actual, 1);
+    }
+
+    @Test
+    public void evaluate_minus_twenty_two() {
+        double expected = -1;
+        ExpEval exp_eval = new ExpEval();
+        double actual = exp_eval.evaluator("(-1)");
+        Assert.assertEquals(expected, actual, 1);
+    }
+    @Test
+    public void evaluate_two_to_the_power_minus_three() {
+        double expected = .125;
+        ExpEval exp_eval = new ExpEval();
+        double actual = exp_eval.evaluator("2 ^ -3");
+        Assert.assertEquals(expected, actual, 1);
     }
 }

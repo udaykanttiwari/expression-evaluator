@@ -63,12 +63,7 @@ public class ExpEval {
     }
 
     private double evaluate(List<Double> Operands, List<String> Operators) {
-        for (String Operator : Operators) {
-            System.out.println(Operator);
-        }
-        System.out.println(Operands.get(0));
         for (int i = 0; i < Operators.size(); i++) {
-            System.out.println("coming here");
             double first = Operands.get(i);
             double result = 0;
             double second = Operands.get(i + 1);
@@ -80,15 +75,18 @@ public class ExpEval {
                 Operands.set(i + 1, first * second);
             if (Operators.get(i).contains("/"))
                 Operands.set(i + 1, first / second);
-            if (Operators.get(i).contains("^"))
+            if (Operators.get(i).contains("^")){
                 Operands.set(i + 1, (double) Math.pow(first, second));
+            }
         }
         double result = Operands.get(Operands.size() - 1);
+
         return result;
     }
 
 
     private String handleSpaces(String expression) {
+
         expression = expression.replaceAll(" +", "");
         expression = expression.replaceAll("\\+", " + ")
                 .replaceAll("\\-", " - ")
@@ -98,7 +96,8 @@ public class ExpEval {
                 .replaceAll("\\+   ", " + ")
                 .replaceFirst("^ - ", "-").replaceAll("\\( - ", "(-")
                 .replaceAll("\\+  - ", "- ").replaceAll("\\*  -", "*")
-                .replaceFirst("^ -", "-").replaceAll(" -  - ", " + ");
+                .replaceFirst("^ -", "-").replaceAll(" -  - ", " + ")
+                .replaceAll("\\^  - ","^ -");
         return expression;
 
     }
